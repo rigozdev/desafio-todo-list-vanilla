@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="principal-container">
+        <h1>Todo List</h1>
+        <h2>(Lista de tareas)</h2>
+        <hr>
+        <form action="" id="formulario">
+            <label for="">Ingrese tarea:
+                <br>
+                <input type="text" id="inputTarea" class="tarea-input" placeholder="Salir a pasear">
+                <button type="submit" id="agregaTarea" class="btn btn-success">Agregar</button>
+            </label>
+        </form>
+    </section>
+    <br>
+    <div class="total-realizadas-container">
+        <p id="cantidadTareas">Total tareas: <b>0</b></p>
+        <p id="cantidadTareasRealizadas">Realizadas: <b>0</b></p>
+    </div>
+
+
+    <section id="header-table">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <b>ID</b>
+                </div>
+                <div class="col">
+                    <b>Tarea</b>
+                </div>
+                <div class="col">
+                    <b>Estado</b>
+                </div>
+                <div class="col">
+                    <b>Quitar</b>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <section id="tareasContainer">
+        
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    249973
+                </div>
+                <div class="col">
+                    Colgar la ropa
+                </div>
+                <div class="col">
+                    <input type="checkbox" name="" id="status" checked>
+                </div>
+                <div class="col">
+                    ❌
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    249974
+                </div>
+                <div class="col">
+                    Hacer las compras
+                </div>
+                <div class="col">
+                    <input type="checkbox" name="" id="" checked>
+                </div>
+                <div class="col">
+                    ❌
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/app/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+*{
+    font-family: 'Roboto Mono', monospace;    
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: rgb(53,53,53);
+    color: aliceblue;
+}
+
+.principal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(53,53,53);
+}
+
+.total-realizadas-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.tarea-input{
+    border-radius: 5px;
+    border: 0px;
+    padding: 0.25rem;
+}

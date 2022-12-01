@@ -27,3 +27,8 @@ body{
     border: 0px;
     padding: 0.25rem;
 }
+
+.eliminar-button{
+    background-color: inherit;
+    border: 0px;    
+}

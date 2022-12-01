@@ -32,7 +32,7 @@ const renderizado =()=>{
                     <input type="checkbox" name="" id="status">
                 </div>
                 <div class="col">
-                    ❌
+                    <button class="eliminar-button">❌</button>
                 </div>
         </div>
         </div>

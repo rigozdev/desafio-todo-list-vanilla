@@ -1,11 +1,12 @@
 //Elementos html
 const formulario = document.querySelector('#formulario');
 const inputTarea = document.querySelector('#inputTarea');
-const status = document.querySelector('#status');
+//const statusTarea = document.querySelector('#statusTarea');
 const tareasContainer = document.querySelector('#tareasContainer');
+const cantidadTareas = document.querySelector('#cantidadTareas');
 
 
-listaDeTareas = [
+let listaDeTareas = [
     { id: +String(Date.now() + 1).slice(7), descripcionTarea: 'Salir a regar', estado: false },
     { id: +String(Date.now() + 2).slice(7), descripcionTarea: 'Ir a comer', estado: false },
     { id: +String(Date.now() + 3).slice(7), descripcionTarea: 'Hacer las tareas', estado: false },
@@ -14,67 +15,28 @@ listaDeTareas = [
 ];
 console.log(listaDeTareas);
 
-const modifica = (idTarea) => {
-    const tarea = listaDeTareas.find((tarea) => tarea.id === idTarea);
-    if (tarea) {
-        if (tarea.estado) {
-            tarea.estado = false;
 
-            let html = '';
-            for (const tarea of listaDeTareas) {
-                html += `
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col">
-                            ${tarea.id}
-                        </div>
-                        <div class="col">
-                            ${tarea.descripcionTarea}
-                        </div>
-                        <div class="col">
-                            <input onclick="modifica(${listaDeTareas.id})" type="checkbox" name="" id="status">
-                        </div>
-                        <div class="col">
-                            <button onclick="elimina(${listaDeTareas.id})" class="eliminar-button">❌</button>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }
-            tareasContainer.innerHTML = html;
-        } else {
-            tarea.estado = true;
-            let html = '';
-            for (const tarea of listaDeTareas) {
-                html += `
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col">
-                            ${tarea.id}
-                        </div>
-                        <div class="col">
-                            ${tarea.descripcionTarea}
-                        </div>
-                        <div class="col">
-                            <input onclick="modifica(${listaDeTareas.id})" type="checkbox" name="" id="status" checked>
-                        </div>
-                        <div class="col">
-                            <button onclick="elimina(${listaDeTareas.id})" class="eliminar-button">❌</button>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }
-            tareasContainer.innerHTML = html;
-        }
-    }
+// const isChecked = () => {
+//     for (const tarea of listaDeTareas) {
+//         if (tarea.estado === true ) {
 
+//             statusTarea.checked;
+//         }
+//     }
+// }
 
+const renderizaTareas = () => {
+    let totalTareas = listaDeTareas.length;
+    cantidadTareas.innerHTML='';
+    console.log('totaltareas:', totalTareas);
+    cantidadTareas.innerHTML+=`<p id="cantidadTareas">Total tareas: <b>${totalTareas}</b></p>`;
 }
 
-
-
 const renderizado = () => {
+    // renderizaTareas();
+    let totalTareas = listaDeTareas.length;
+    
+
     tareasContainer.innerHTML = '';
 
     listaDeTareas.forEach(element => {
@@ -88,15 +50,23 @@ const renderizado = () => {
                     ${element.descripcionTarea}
                 </div>
                 <div class="col">
-                    <input onclick="modifica(${listaDeTareas.id})" type="checkbox" name="" id="status">
+                    <input onclick="modifica(${element.id})" type="checkbox" name="">
                 </div>
                 <div class="col">
-                    <button onclick="elimina(${listaDeTareas.id})" class="eliminar-button">❌</button>
+                    <button onclick="elimina(${element.id})" class="eliminar-button">❌</button>
                 </div>
         </div>
         </div>
         `
+        
     });
+
+    renderizaTareas();
+    // cantidadTareas.innerHTML='';
+    // console.log('totaltareas:', totalTareas);
+    // cantidadTareas.innerHTML+=`<p id="cantidadTareas">Total tareas: <b>${totalTareas}</b></p>`;
+    // isChecked();
+    //console.log(statusTarea.checked);
 }
 
 renderizado();
@@ -112,6 +82,8 @@ const agrega = () => {
     } else {
         alert('Ingrese una tarea válida');
     }
+
+    
 }
 
 
@@ -132,16 +104,17 @@ const elimina = (id) => {
                     ${tarea.descripcionTarea}
                 </div>
                 <div class="col">
-                    <input onclick="modifica(${listaDeTareas.id})" type="checkbox" name="" id="status">
+                    <input onclick="modifica(${tarea.id})" type="checkbox" name="" id="statusTarea">
                 </div>
                 <div class="col">
-                    <button onclick="elimina(${listaDeTareas.id})" class="eliminar-button">❌</button>
+                    <button onclick="elimina(${tarea.id})" class="eliminar-button">❌</button>
                 </div>
             </div>
         </div>
         `;
     }
     tareasContainer.innerHTML = html;
+    renderizaTareas();
 };
 
 
@@ -165,3 +138,83 @@ formulario.addEventListener('submit', (evento) => {
 
 // console.log(Date.now());
 // console.log(Date.now()+1);
+
+
+
+
+
+// const modifica = (idTarea) => {
+//     const tarea = listaDeTareas.find((tarea) => tarea.id === idTarea);
+//     if (tarea) {
+//         if (tarea.estado) {
+//             tarea.estado = false;
+
+//             let html = '';
+//             for (const tarea of listaDeTareas) {
+//                 html += `
+//                 <div class="container text-center">
+//                     <div class="row">
+//                         <div class="col">
+//                             ${tarea.id}
+//                         </div>
+//                         <div class="col">
+//                             ${tarea.descripcionTarea}
+//                         </div>
+//                         <div class="col">
+//                             <input onclick="modifica(${listaDeTareas.id})" type="checkbox" name="" id="status">
+//                         </div>
+//                         <div class="col">
+//                             <button onclick="elimina(${listaDeTareas.id})" class="eliminar-button">❌</button>
+//                         </div>
+//                     </div>
+//                 </div>
+//                 `;
+//             }
+//             tareasContainer.innerHTML = html;
+//         } else {
+//             tarea.estado = true;
+//             let html = '';
+//             for (const tarea of listaDeTareas) {
+//                 html += `
+//                 <div class="container text-center">
+//                     <div class="row">
+//                         <div class="col">
+//                             ${tarea.id}
+//                         </div>
+//                         <div class="col">
+//                             ${tarea.descripcionTarea}
+//                         </div>
+//                         <div class="col">
+//                             <input onclick="modifica(${listaDeTareas.id})" type="checkbox" name="" id="status" checked>
+//                         </div>
+//                         <div class="col">
+//                             <button onclick="elimina(${listaDeTareas.id})" class="eliminar-button">❌</button>
+//                         </div>
+//                     </div>
+//                 </div>
+//                 `;
+//             }
+//             tareasContainer.innerHTML = html;
+//         }
+//     }
+
+
+// }
+
+
+const modifica = (id) => {
+    console.log('modificando');
+    
+    listaDeTareas.map((elem) => {
+        if(elem.id === id){            
+            if(elem.estado===false){
+                return elem.estado=true;
+            }else{
+                return elem.estado=false;
+            }
+        }
+    })
+    
+}
+
+renderizaTareas();

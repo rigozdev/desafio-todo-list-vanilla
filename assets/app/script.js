@@ -4,6 +4,7 @@ const inputTarea = document.querySelector('#inputTarea');
 //const statusTarea = document.querySelector('#statusTarea');
 const tareasContainer = document.querySelector('#tareasContainer');
 const cantidadTareas = document.querySelector('#cantidadTareas');
+const cantidadTareasRealizadas = document.querySelector('#cantidadTareasRealizadas');
 
 
 let listaDeTareas = [
@@ -27,15 +28,27 @@ console.log(listaDeTareas);
 
 const renderizaTareas = () => {
     let totalTareas = listaDeTareas.length;
-    cantidadTareas.innerHTML='';
+    cantidadTareas.innerHTML = '';
     console.log('totaltareas:', totalTareas);
-    cantidadTareas.innerHTML+=`<p id="cantidadTareas">Total tareas: <b>${totalTareas}</b></p>`;
+    cantidadTareas.innerHTML += `<p id="cantidadTareas">Total tareas: <b>${totalTareas}</b></p>`;
+
+
+    totalTareasRealizadas = 0;
+    for (const tarea of listaDeTareas) {
+        if (tarea.estado===true) {
+            totalTareasRealizadas+=1;
+        }
+    }
+
+    cantidadTareasRealizadas.innerHTML='';
+    cantidadTareasRealizadas.innerHTML+=`<p id="cantidadTareasRealizadas">Tareas realizadas: <b>${totalTareasRealizadas}</b></p>`;
+
 }
 
 const renderizado = () => {
     // renderizaTareas();
     let totalTareas = listaDeTareas.length;
-    
+
 
     tareasContainer.innerHTML = '';
 
@@ -58,7 +71,7 @@ const renderizado = () => {
         </div>
         </div>
         `
-        
+
     });
 
     renderizaTareas();
@@ -83,7 +96,7 @@ const agrega = () => {
         alert('Ingrese una tarea válida');
     }
 
-    
+
 }
 
 
@@ -204,17 +217,17 @@ formulario.addEventListener('submit', (evento) => {
 
 const modifica = (id) => {
     console.log('modificando');
-    
+
     listaDeTareas.map((elem) => {
-        if(elem.id === id){            
-            if(elem.estado===false){
-                return elem.estado=true;
-            }else{
-                return elem.estado=false;
+        if (elem.id === id) {
+            if (elem.estado === false) {
+                return elem.estado = true;
+            } else {
+                return elem.estado = false;
             }
         }
     })
-    
+
 }
 
 renderizaTareas();

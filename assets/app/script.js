@@ -63,7 +63,7 @@ const renderizado = () => {
                     ${element.descripcionTarea}
                 </div>
                 <div class="col">
-                    <input onclick="modifica(${element.id})" type="checkbox" name="">
+                    <input onclick="modifica(${element.id})" type="checkbox" name="" id="${+String(Date.now()).slice(7)}">
                 </div>
                 <div class="col">
                     <button onclick="elimina(${element.id})" class="eliminar-button">❌</button>
@@ -95,7 +95,7 @@ const agrega = () => {
     } else {
         alert('Ingrese una tarea válida');
     }
-
+    
 
 }
 

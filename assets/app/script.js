@@ -8,10 +8,11 @@ const cantidadTareasRealizadas = document.querySelector('#cantidadTareasRealizad
 
 let listaDeTareas = [
 
-    { id: +String(Date.now() + 1).slice(7), descripcionTarea: 'Salir a regar', estado: false },
-    { id: +String(Date.now() + 2).slice(7), descripcionTarea: 'Ir a comer', estado: false },
-    { id: +String(Date.now() + 3).slice(7), descripcionTarea: 'Hacer las tareas', estado: false },
-    { id: +String(Date.now() + 4).slice(7), descripcionTarea: 'Practicar estudios', estado: false },
+    //! Se comentarion los elementos para que se inicie con una lista vacía
+    // { id: +String(Date.now() + 1).slice(7), descripcionTarea: 'Salir a regar', estado: false },
+    // { id: +String(Date.now() + 2).slice(7), descripcionTarea: 'Ir a comer', estado: false },
+    // { id: +String(Date.now() + 3).slice(7), descripcionTarea: 'Hacer las tareas', estado: false },
+    // { id: +String(Date.now() + 4).slice(7), descripcionTarea: 'Practicar estudios', estado: false },
 
 ];
 
